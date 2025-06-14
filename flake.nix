@@ -1,5 +1,5 @@
 {
-  description = "Description for the project";
+  description = "My flake templates";
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -20,6 +20,8 @@
               # uv impure
               ## Intended Usage
               Use `uv` command to initialize and manipulate the project.
+
+              This flake creates hidden files. Use `ls -a` to check them.
 
               The venv is automatically created and activated when entering 
               the dev shell.  It is recommended to use direnv to enter the dev
