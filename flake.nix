@@ -50,6 +50,7 @@
           pre-commit.settings = {
             src = ./.;
             hooks = {
+              markdownlint.enable = true;
               nixfmt-rfc-style.enable = true;
             };
           };
