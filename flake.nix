@@ -13,6 +13,25 @@
       flake = {
         templates.default = self.templates.uv-impure;
         templates = {
+          typst = {
+            description = "A Typst flake with pre-commit-hooks and basic CJK support.";
+            path = ./templates/typst;
+            welcomeText = ''
+              # typst flake
+              ## Intended Usage
+
+              Use `nix run .#watch` to watch the input files and recompile on
+              changes. 
+
+              Use `nix run .#build` to compile and copy the output to the
+              current directory. 
+
+              It is recommended to use direnv to enter the dev shell, to do so,
+                 `echo "use flake" > .envrc`.
+
+              This flake creates hidden files. Use `ls -a` to check them.
+            '';
+          };
           uv-impure = {
             description = "A flake that creates a uv venv";
             path = ./templates/uv-impure;
