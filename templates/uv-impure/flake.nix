@@ -40,15 +40,20 @@
           devShells = {
             default = pkgs.mkShellNoCC {
               buildInputs = with pkgs; [
-                python313
+                python314
                 uv
                 pythonManylinuxPackages.manylinux2014Package
               ];
+              NIX_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+                pkgs.stdenv.cc.cc
+                pkgs.pythonManylinuxPackages.manylinux2014Package
+              ];
+              NIX_LD = builtins.readFile "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
+ 
               shellHook = ''
                 # install pre-commit hooks
                 ${config.pre-commit.installationScript}
 
-                export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib.outPath}/lib:${pkgs.pythonManylinuxPackages.manylinux2014Package}/lib:$LD_LIBRARY_PATH";
                 uv venv --allow-existing
                 . .venv/bin/activate
                 uv sync

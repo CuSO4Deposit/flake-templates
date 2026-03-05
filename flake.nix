@@ -45,6 +45,8 @@
               The venv is automatically created and activated when entering 
               the dev shell.  It is recommended to use direnv to enter the dev
               shell, the corresponding `.envrc` is also provided.
+
+              This flake assumes nix-ld is enabled on the system.
             '';
           };
         };
