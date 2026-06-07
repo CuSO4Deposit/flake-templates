@@ -40,7 +40,6 @@
           devShells = {
             default = pkgs.mkShellNoCC {
               buildInputs = with pkgs; [
-                python314
                 uv
                 pythonManylinuxPackages.manylinux2014Package
               ];
@@ -49,7 +48,7 @@
                 pkgs.pythonManylinuxPackages.manylinux2014Package
               ];
               NIX_LD = builtins.readFile "${pkgs.stdenv.cc}/nix-support/dynamic-linker";
- 
+
               shellHook = ''
                 # install pre-commit hooks
                 ${config.pre-commit.installationScript}
