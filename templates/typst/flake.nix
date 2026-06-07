@@ -114,6 +114,7 @@
             watch-script
             # More packages can be added here, like typstfmt
             # pkgs.typstfmt
+            pkgs.tinymist
           ];
         };
       }
